@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "335439058679",
+    "firebase_url": "https://cosmetic-dfa8b.firebaseio.com",
+    "project_id": "cosmetic-dfa8b",
+    "storage_bucket": "cosmetic-dfa8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335439058679:android:4a0a88930bbfd1b1",
+        "android_client_info": {
+          "package_name": "com.example.cosmetic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335439058679-j17je5j7htpos8qkvpeed92lqooe53ci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTuPnVyjBvj1I3vacHfpLYb4tSMSJV3KY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335439058679-j17je5j7htpos8qkvpeed92lqooe53ci.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "335439058679-rjgvcfdq49b5ner5fe6ioc41tdb9k90m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "coco.Cosmetic"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
