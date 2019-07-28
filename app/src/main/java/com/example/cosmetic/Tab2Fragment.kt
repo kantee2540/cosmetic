@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.tab2_fragment.*
+import kotlinx.android.synthetic.main.tab2_fragment.view.*
 import okhttp3.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -37,11 +38,12 @@ class Tab2Fragment : Fragment() {
 
         client.newCall(request).enqueue(object : Callback{
             override fun onFailure(call: Call, e: IOException) {
-                Log.e("Failed", "Error!!")
+                Log.e("Failed", "Cannot connect to server : $productUrl")
+                noInternet(false)
             }
 
             override fun onResponse(call: Call, response: Response) {
-
+                noInternet(true)
                 val strResponse = response.body!!.string()
                 val jsonArray = JSONArray(strResponse)
 
@@ -74,5 +76,21 @@ class Tab2Fragment : Fragment() {
         }
 
 
+    }
+
+    private fun noInternet(internetConnection: Boolean){
+
+        activity!!.runOnUiThread {
+            if(internetConnection){
+                rootView.no_internet_info.visibility = View.GONE
+            }
+            else{
+                rootView.no_internet_info.visibility = View.VISIBLE
+            }
+
+            rootView.try_again_btn.setOnClickListener {
+                downloadProduct()
+            }
+        }
     }
 }
