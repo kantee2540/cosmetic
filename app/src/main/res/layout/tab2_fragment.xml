@@ -44,6 +44,13 @@
             android:text="@string/no_internet_detail"
             android:textAlignment="center" />
 
+        <TextView
+            android:id="@+id/error_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center" />
+
         <Button
             android:id="@+id/try_again_btn"
             android:layout_width="match_parent"
