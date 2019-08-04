@@ -5,6 +5,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 
 import kotlinx.android.synthetic.main.activity_cosmetic_info.*
+import kotlinx.android.synthetic.main.content_cosmetic_info.*
 
 class CosmeticInfoActivity : AppCompatActivity() {
 
@@ -12,6 +13,12 @@ class CosmeticInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cosmetic_info)
         setSupportActionBar(toolbar)
+
+        product_textview.text = intent.getStringExtra("product_name")
+        description_textview.text = intent.getStringExtra("product_description")
+        toolbar.title = intent.getStringExtra("product_brand")
+
+        toolbar.setNavigationOnClickListener { finish() }
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

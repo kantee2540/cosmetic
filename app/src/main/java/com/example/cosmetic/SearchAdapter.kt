@@ -1,6 +1,5 @@
 package com.example.cosmetic
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.search_item_list.view.*
 
-class SearchAdapter(val productSet: ArrayList<ProductModel>, val context: Context) : RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
+class SearchAdapter(private val productSet: ArrayList<ProductModel>, private val context: Context) : RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int {
         return productSet.size
@@ -20,6 +19,9 @@ class SearchAdapter(val productSet: ArrayList<ProductModel>, val context: Contex
         holder.descriptionTv.text = productSet[position].productDescription
         holder.searchLayout.setOnClickListener {
             val intent = Intent(context, CosmeticInfoActivity::class.java)
+            intent.putExtra("product_name", productSet[position].productName)
+            intent.putExtra("product_description", productSet[position].productDescription)
+            intent.putExtra("product_brand", productSet[position].brandName)
             context.startActivity(intent)
         }
     }

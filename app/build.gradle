@@ -17,6 +17,7 @@ android {
             buildConfigField "String", "server_url", "\"http://192.168.1.175:8080/webService/\""
         }
         release {
+            buildConfigField "String", "server_url", "\"http://192.168.1.175:8080/webService/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
