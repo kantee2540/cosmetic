@@ -1,6 +1,8 @@
 package com.example.cosmetic
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +18,10 @@ class SearchAdapter(val productSet: ArrayList<ProductModel>, val context: Contex
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.titleTv.text = productSet[position].productName
         holder.descriptionTv.text = productSet[position].productDescription
+        holder.searchLayout.setOnClickListener {
+            val intent = Intent(context, CosmeticInfoActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -25,6 +31,7 @@ class SearchAdapter(val productSet: ArrayList<ProductModel>, val context: Contex
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val titleTv = itemView.title_tv
         val descriptionTv = itemView.description_tv
+        val searchLayout = itemView.search_item_layout
     }
 }
 
