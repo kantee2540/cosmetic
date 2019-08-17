@@ -31,9 +31,9 @@ class SearchAdapter(private val productSet: ArrayList<ProductModel>, private val
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val titleTv = itemView.title_tv
-        val descriptionTv = itemView.description_tv
-        val searchLayout = itemView.search_item_layout
+        val titleTv = itemView.title_tv!!
+        val descriptionTv = itemView.description_tv!!
+        val searchLayout = itemView.search_item_layout!!
     }
 }
 

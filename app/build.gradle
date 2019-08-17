@@ -14,10 +14,11 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField "String", "server_url", "\"http://192.168.1.175:8080/webService/\""
+            //buildConfigField "String", "server_url", "\"http://192.168.1.173:8080/webService/\""
+            buildConfigField "String", "server_url", "\"https://cococosmetic.000webhostapp.com/\""
         }
         release {
-            buildConfigField "String", "server_url", "\"http://192.168.1.175:8080/webService/\""
+            buildConfigField "String", "server_url", "\"http://192.168.1.173:8080/webService/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 

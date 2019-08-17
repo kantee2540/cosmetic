@@ -32,7 +32,6 @@ class Tab2Fragment : Fragment() {
             search_recycler.layoutManager = LinearLayoutManager(rootView.context)
         }
 
-
     }
 
     private fun downloadCallback(){
