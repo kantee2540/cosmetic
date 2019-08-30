@@ -5,6 +5,14 @@ import okhttp3.*
 import org.json.JSONArray
 import java.io.IOException
 
+const val PRODUCT_NAME = "product_name"
+const val DESCRIPTION = "description"
+const val PRODUCT_PRICE = "product_price"
+const val CATEGORIES_NAME = "categories_name"
+const val CATEGORIES_TYPE = "categories_type"
+const val BRAND_NAME = "brand_name"
+const val PRODUCT_IMG = "product_img"
+
 class DownloadProduct(private val callBack: DownloadProductInterface) {
 
     var product: ArrayList<ProductModel> = ArrayList()
@@ -30,13 +38,13 @@ class DownloadProduct(private val callBack: DownloadProductInterface) {
                     val jsonObject = jsonArray.getJSONObject(i)
 
                     val productModel = ProductModel()
-                    productModel.productName = jsonObject.getString("product_name")
-                    productModel.productDescription = jsonObject.getString("description")
-                    productModel.productPrice = jsonObject.getString("product_price")
-                    productModel.categoriesName = jsonObject.getString("categories_name")
-                    productModel.categoriesType = jsonObject.getString("categories_type")
-                    productModel.brandName = jsonObject.getString("brand_name")
-                    productModel.productImg = jsonObject.getString("product_img")
+                    productModel.productName = jsonObject.getString(PRODUCT_NAME)
+                    productModel.productDescription = jsonObject.getString(DESCRIPTION)
+                    productModel.productPrice = jsonObject.getString(PRODUCT_PRICE)
+                    productModel.categoriesName = jsonObject.getString(CATEGORIES_NAME)
+                    productModel.categoriesType = jsonObject.getString(CATEGORIES_TYPE)
+                    productModel.brandName = jsonObject.getString(BRAND_NAME)
+                    productModel.productImg = jsonObject.getString(PRODUCT_IMG)
 
                     product.add(productModel)
 
