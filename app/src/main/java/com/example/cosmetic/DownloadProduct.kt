@@ -5,11 +5,11 @@ import okhttp3.*
 import org.json.JSONArray
 import java.io.IOException
 
-class DownloadProduct {
+class DownloadProduct(private val callBack: DownloadProductInterface) {
 
     var product: ArrayList<ProductModel> = ArrayList()
 
-    fun downloadProduct(callBack: DownloadProductInterface){
+    fun downloadProduct(){
         val client = OkHttpClient()
         val productUrl = BuildConfig.server_url + "getProduct.php"
         val request = Request.Builder()

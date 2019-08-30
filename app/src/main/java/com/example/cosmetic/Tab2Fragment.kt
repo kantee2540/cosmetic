@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.tab2_fragment.*
 import kotlinx.android.synthetic.main.tab2_fragment.view.*
 
-class Tab2Fragment : Fragment() {
+class Tab2Fragment : Fragment(), DownloadProductInterface {
 
     var product :ArrayList<ProductModel> = ArrayList()
     lateinit var rootView :View
@@ -17,7 +17,7 @@ class Tab2Fragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.tab2_fragment, container, false)
-        downloadProduct = DownloadProduct()
+        downloadProduct = DownloadProduct(this)
 
         downloadCallback()
 
@@ -34,28 +34,27 @@ class Tab2Fragment : Fragment() {
 
     }
 
+    override fun onSuccessDownloadProduct(productResult: ArrayList<ProductModel>) {
+        product = productResult
+        activity!!.runOnUiThread {
+            rootView.no_internet_info.visibility = View.GONE
+        }
+
+        initRecyclerView()
+    }
+
+    override fun onFailedDownloadProduct(errorDescription: String) {
+        activity!!.runOnUiThread {
+            rootView.no_internet_info.visibility = View.VISIBLE
+            rootView.error_code.text = errorDescription
+        }
+        rootView.try_again_btn.setOnClickListener {
+            downloadCallback()
+        }
+    }
+
     private fun downloadCallback(){
-
-        downloadProduct.downloadProduct(object : DownloadProductInterface{
-            override fun onSuccessDownloadProduct(productResult: ArrayList<ProductModel>) {
-                product = productResult
-                activity!!.runOnUiThread {
-                    rootView.no_internet_info.visibility = View.GONE
-                }
-
-                initRecyclerView()
-            }
-
-            override fun onFailedDownloadProduct(errorDescription: String) {
-                activity!!.runOnUiThread {
-                    rootView.no_internet_info.visibility = View.VISIBLE
-                    rootView.error_code.text = errorDescription
-                }
-                rootView.try_again_btn.setOnClickListener {
-                    downloadCallback()
-                }
-            }
-        })
+        downloadProduct.downloadProduct()
     }
 
 }
