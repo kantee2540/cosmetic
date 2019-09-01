@@ -32,6 +32,10 @@ class Tab2Fragment : Fragment(), DownloadProductInterface {
             search_recycler.layoutManager = LinearLayoutManager(rootView.context)
         }
 
+        search_refresh.setOnRefreshListener {
+            downloadCallback()
+        }
+
     }
 
     override fun onSuccessDownloadProduct(productResult: ArrayList<ProductModel>) {
@@ -41,6 +45,7 @@ class Tab2Fragment : Fragment(), DownloadProductInterface {
         }
 
         initRecyclerView()
+        search_refresh.isRefreshing = false
     }
 
     override fun onFailedDownloadProduct(errorDescription: String) {
