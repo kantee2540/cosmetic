@@ -19,9 +19,9 @@ class SearchAdapter(private val productSet: ArrayList<ProductModel>, private val
         holder.descriptionTv.text = productSet[position].productDescription
         holder.searchLayout.setOnClickListener {
             val intent = Intent(context, CosmeticInfoActivity::class.java)
-            intent.putExtra("product_name", productSet[position].productName)
-            intent.putExtra("product_description", productSet[position].productDescription)
-            intent.putExtra("product_brand", productSet[position].brandName)
+            intent.putExtra(PRODUCT_NAME, productSet[position].productName)
+            intent.putExtra(DESCRIPTION, productSet[position].productDescription)
+            intent.putExtra(BRAND_NAME, productSet[position].brandName)
             context.startActivity(intent)
         }
     }

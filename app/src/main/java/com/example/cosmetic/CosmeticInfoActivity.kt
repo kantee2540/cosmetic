@@ -14,9 +14,9 @@ class CosmeticInfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cosmetic_info)
         setSupportActionBar(toolbar)
 
-        product_textview.text = intent.getStringExtra("product_name")
-        description_textview.text = intent.getStringExtra("product_description")
-        toolbar.title = intent.getStringExtra("product_brand")
+        product_textview.text = intent.getStringExtra(PRODUCT_NAME)
+        description_textview.text = intent.getStringExtra(DESCRIPTION)
+        toolbar.title = intent.getStringExtra(BRAND_NAME)
 
         toolbar.setNavigationOnClickListener { finish() }
 
