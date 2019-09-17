@@ -1,10 +1,8 @@
 package com.example.cosmetic
 
 import android.os.Bundle
-import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -18,8 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         mSectionsPageAdapter = SectionsPageAdapter(supportFragmentManager)
         setupViewPager(container)
-        tabs1.setupWithViewPager(container)
-
 
     }
 
@@ -31,6 +27,12 @@ class MainActivity : AppCompatActivity() {
         adapter.addFragment(Tab3Fragment(), "Camera")
         adapter.addFragment(Tab4Fragment(), "Account")
         viewPager.adapter = adapter
+        tabs1.setupWithViewPager(container)
+
+        tabs1.getTabAt(0)!!.setIcon(R.drawable.ic_home)
+        tabs1.getTabAt(1)!!.setIcon(R.drawable.ic_search)
+        tabs1.getTabAt(2)!!.setIcon(R.drawable.ic_camera)
+        tabs1.getTabAt(3)!!.setIcon(R.drawable.ic_account)
     }
 
 }
