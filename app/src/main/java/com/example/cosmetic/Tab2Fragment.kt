@@ -11,9 +11,9 @@ import kotlinx.android.synthetic.main.tab2_fragment.view.*
 
 class Tab2Fragment : Fragment(), DownloadProductInterface {
 
-    var product :ArrayList<ProductModel> = ArrayList()
-    lateinit var rootView :View
-    lateinit var downloadProduct: DownloadProduct
+    private var product :ArrayList<ProductModel> = ArrayList()
+    private lateinit var rootView :View
+    private lateinit var downloadProduct: DownloadProduct
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.tab2_fragment, container, false)
