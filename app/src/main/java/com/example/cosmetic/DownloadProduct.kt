@@ -51,9 +51,6 @@ class DownloadProduct(private val callBack: DownloadProductInterface) {
                     callBack.onSuccessDownloadProduct(product)
 
                 }
-
-
-
             }
         })
 
