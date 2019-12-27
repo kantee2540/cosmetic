@@ -1,14 +1,15 @@
 package com.example.cosmetic
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.search_item_list.view.*
 
-class SearchAdapter(private val productSet: ArrayList<ProductModel>, private val context: Context) : RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
+class SearchAdapter(private val productSet: ArrayList<ProductModel>, private val context: Activity) : RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int {
         return productSet.size
@@ -17,6 +18,8 @@ class SearchAdapter(private val productSet: ArrayList<ProductModel>, private val
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.titleTv.text = productSet[position].productName
         holder.descriptionTv.text = productSet[position].productDescription
+        Glide.with(context).load(productSet[position].productImg).into(holder.productImage)
+
         holder.searchLayout.setOnClickListener {
             val intent = Intent(context, CosmeticInfoActivity::class.java)
             intent.putExtra(PRODUCT_NAME, productSet[position].productName)
@@ -34,6 +37,7 @@ class SearchAdapter(private val productSet: ArrayList<ProductModel>, private val
         val titleTv = itemView.title_tv!!
         val descriptionTv = itemView.description_tv!!
         val searchLayout = itemView.search_item_layout!!
+        val productImage = itemView.productImage!!
     }
 }
 

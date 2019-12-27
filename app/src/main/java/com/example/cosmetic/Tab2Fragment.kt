@@ -28,7 +28,7 @@ class Tab2Fragment : Fragment(), DownloadProductInterface {
     private fun initRecyclerView(){
 
         activity!!.runOnUiThread {
-            search_recycler.adapter = SearchAdapter(product, rootView.context)
+            search_recycler.adapter = SearchAdapter(product, activity!!)
             search_recycler.layoutManager = LinearLayoutManager(rootView.context)
         }
 
