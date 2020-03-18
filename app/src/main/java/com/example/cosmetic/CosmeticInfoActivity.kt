@@ -1,8 +1,10 @@
 package com.example.cosmetic
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.cosmetic.getobject.BRAND_NAME
+import com.example.cosmetic.getobject.DESCRIPTION
+import com.example.cosmetic.getobject.PRODUCT_NAME
 
 import kotlinx.android.synthetic.main.activity_cosmetic_info.*
 import kotlinx.android.synthetic.main.content_cosmetic_info.*
@@ -19,11 +21,6 @@ class CosmeticInfoActivity : AppCompatActivity() {
         toolbar.title = intent.getStringExtra(BRAND_NAME)
 
         toolbar.setNavigationOnClickListener { finish() }
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
     }
 
 }
