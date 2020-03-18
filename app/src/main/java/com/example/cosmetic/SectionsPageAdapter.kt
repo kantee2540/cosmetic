@@ -15,10 +15,10 @@ class SectionsPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         mFragmentList.add(fragment)
         mFragmentTitleList.add(title)
     }
-//
-//    override fun getPageTitle(position: Int): CharSequence? {
-//        return mFragmentTitleList[position]
-//    }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return mFragmentTitleList[position]
+    }
 
     override fun getItem(position: Int): Fragment {
         return mFragmentList[position]

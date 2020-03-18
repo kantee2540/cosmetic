@@ -1,6 +1,7 @@
 package com.example.cosmetic.search
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.cosmetic.R
 import com.example.cosmetic.getobject.ProductModel
 import kotlinx.android.synthetic.main.search_fragment.*
 import kotlinx.android.synthetic.main.search_fragment.view.*
+import java.lang.Exception
 
 class SearchFragment : Fragment(), DownloadProductInterface {
 
@@ -25,6 +27,10 @@ class SearchFragment : Fragment(), DownloadProductInterface {
 
         downloadCallback()
 
+        rootView.search_refresh.setOnRefreshListener {
+            downloadCallback()
+        }
+
         return rootView
 
     }
@@ -32,12 +38,13 @@ class SearchFragment : Fragment(), DownloadProductInterface {
     private fun initRecyclerView(){
 
         activity!!.runOnUiThread {
-            search_recycler.adapter = SearchAdapter(product, activity!!)
-            search_recycler.layoutManager = LinearLayoutManager(rootView.context)
-        }
+            try {
+                rootView.search_recycler.adapter = SearchAdapter(product, rootView.context)
+                rootView.search_recycler.layoutManager = LinearLayoutManager(rootView.context)
+            }catch (e: Exception){
+                Log.e("Error", e.toString())
+            }
 
-        search_refresh.setOnRefreshListener {
-            downloadCallback()
         }
 
     }
@@ -49,7 +56,7 @@ class SearchFragment : Fragment(), DownloadProductInterface {
         }
 
         initRecyclerView()
-        search_refresh.isRefreshing = false
+        rootView.search_refresh.isRefreshing = false
     }
 
     override fun onFailedDownloadProduct(errorDescription: String) {
