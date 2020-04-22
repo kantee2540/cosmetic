@@ -25,7 +25,7 @@ android {
     buildTypes {
         debug {
             //buildConfigField "String", "server_url", "\"http://192.168.1.173:8080/webService/\""
-            buildConfigField "String", "server_url", "\"https://cococosmetic.000webhostapp.com/\""
+            buildConfigField "String", "server_url", "\"http://ec2-18-141-56-219.ap-southeast-1.compute.amazonaws.com/\""
         }
         debuglocal {
             buildConfigField "String", "server_url", "\"http://192.168.1.177:8080/webService/\""
