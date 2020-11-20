@@ -53,10 +53,10 @@ class SearchFragment : Fragment(), DownloadProductInterface {
         product = productResult
         activity!!.runOnUiThread {
             rootView.no_internet_info.visibility = View.GONE
+            rootView.search_refresh.isRefreshing = false
         }
 
         initRecyclerView()
-        rootView.search_refresh.isRefreshing = false
     }
 
     override fun onFailedDownloadProduct(errorDescription: String) {
